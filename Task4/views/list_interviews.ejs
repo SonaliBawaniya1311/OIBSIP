@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interviewslist</title>
+    <style>
+        .card{
+            background-color: antiquewhite;
+            border: 2px solid green;
+            border-radius: 5px;
+            margin: 7px;
+            padding: 5px;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        a{text-decoration: none;}
+    </style>
+</head>
+<body >
+    <h1>LIST OF INTERVIEWS</h1>
+    <% for(let interview of interviews){%>
+        <div class="card">
+        <h3>
+           <a href="/employees/int-results?id=<%=interview._id%>"> <%= interview.company_name %></a>
+        </h3>
+        <h4>
+            <%= interview.date.toLocaleString() %>
+        </h4>
+    </div>
+    <%}%>
+    <a href="/employees/export-Interviews">Download Interview info.</a>
+    <hr>
+    <h2>New Interview Entry</h2>
+<form action="employees/create-interview" method="post" class="fo-rm">
+    <input type="text" name="company_name" id="" placeholder="Enter Company's name">
+    <input type="datetime-local" name="date" id="">
+    <button type="submit" class="btn-primary">Add</button>    
+</form>
+
+
+
+</body>
+</html>

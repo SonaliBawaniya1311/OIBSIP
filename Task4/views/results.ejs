@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <h2>
+    
+        <%=interview.company_name%>'s RESULT PAGE
+    </h2>
+    
+    <hr>
+    
+    <%for(let s of students){%>
+
+
+      <%var sEIR= resultsOfInterview.find(resulT=>resulT.student==s.id);%>
+      <%if(!sEIR){%>
+      <div class="radio-form">
+      <h3><%=s.name%></h3>
+   
+      <form action="/employees/update-result/<%=interview._id%>?id=<%=s._id%>" method="post">
+        <input type="radio" id="opt1" name="res" value="selected">
+        <label for="opt1">selected</label>
+        <input type="radio" id="opt2" name="res" value="rejected">
+        <label for="opt2">rejected</label> 
+        <input type="radio" id="opt3" name="res" value="on-hold">
+        <label for="opt3">on hold</label>
+        <input type="submit" value="update" }>
+      </form>
+    
+    </div>
+      <%}%>
+
+      <%if(sEIR && sEIR.res_status==true){%>
+        <h3 style="color: green;"><%=s.name%></h3>
+        <%}%>
+        <%if(sEIR && sEIR.res_status==false){%>
+          <h3 style="color: red;"><%=s.name%></h3>
+          <%}%>
+     
+      
+      <%}%>
+
+<a href="/employees/export-Result">Download Results</a>
+
+</body>
+</html>

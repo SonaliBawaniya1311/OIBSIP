@@ -1,0 +1,41 @@
+<html>
+    <head>
+    
+    <title>CareerCamp | <%=title%></title>
+    <link rel="icon" type="image/x-icon" href="/images/career_camp_new_logo_v2-01.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="">
+    <%- style %>
+    <style>
+        .fo-rm{
+    border: 3px solid rgb(51, 51, 51);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 10px auto;
+}
+
+h2,h1{text-align: center; padding: 6px; text-decoration: underline;}
+
+p{margin: 4px;
+    padding: 6px;
+    font-size: large;        
+}
+    </style>
+</head>
+<body >
+    
+    <%- include('_header'); %>
+
+    <%- body %>
+    
+    <%- include('_footer'); %>
+    
+<%- script %>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

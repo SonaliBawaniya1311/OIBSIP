@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>studentslist</title>
+    <style>
+        
+        table {width: 70vw;
+  border-collapse: collapse;
+  margin:10px auto ;
+}
+
+th, td {padding: 5px;
+  border: 2px solid black;  
+}
+
+
+    </style>
+</head>
+<body >
+    <h1>LIST OF STUDENTS</h1>
+<table >
+    <tr>
+        <th>Student's Name</th>
+        <th>College Name</th>
+        <th>Status</th>
+        <th>Schedule Interview</th>
+    </tr>
+    <% for(let student of students){ %>
+        <tr>
+        <td>
+            <%= student.name %>
+        </td>
+        <td>
+            <%= student.college %>
+        </td>
+        <td>
+            <%let status= student.status? "Placed":"Not Placed"%> 
+            <%=status%>
+                
+        </td>
+        
+ 
+        <td>
+            <form action="/employees/allotS-I?stu_id=<%=student._id%>"method="post">
+                <label for="ints">Choose interview:</label>
+                <select name="ints" id="ints" required>
+                    <option value="" selected>--select--</option>
+                    <% for(let i of interviews){ %>
+                        <option value="<%=i._id%>"><%=i.company_name%></option>
+                        <%}%>
+                  
+                </select>
+                <button type="submit" class="btn-primary">Schedule</button>
+                
+              </form>
+            </td>
+     </tr>
+    <%}%>
+</table>
+<a href="/employees/export-Students">Download Students info.</a>
+    <hr>
+<h2>New Student entry</h2>
+<form action="employees/create-student" method="post" class="fo-rm">
+    <input type="text" name="name" id="" placeholder="Enter Student's name">
+    <input type="text" name="college" id="" placeholder="Enter College's name">
+    <input type="number" name="batch_id" id=""placeholder="Enter Batch Id">
+    <div><label for="status">Is the student already placed?</label>
+    <input type="checkbox" name="status" id="status" value="true"></div>
+    <button type="submit" class="btn-primary">Add</button> 
+</form>
+
+
+</body>
+</html>
